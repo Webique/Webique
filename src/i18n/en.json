@@ -39,6 +39,16 @@
   "title": "Let's Connect",
   "description": "Have a project in mind? Let’s make it happen. Our team is ready to bring your vision to life with design, strategy, and innovation.",
   "cta": "Contact Us"
+},
+"aboutPage": {
+  "ourStory": "Our Story",
+  "storyText": "Webique was born from the shared passion of three international students studying abroad in the UK. We were driven by a deep desire to build something that empowers people — not just websites, but opportunities, dreams, and brands that matter. We started small, with just our laptops and vision, and today we help clients across the region make their ideas a reality.",
+  "standForTitle": "What We Stand For",
+  "creativity": "Creativity",
+  "innovation": "Innovation",
+  "integrity": "Integrity",
+  "ctaText": "Ready to elevate your brand with us?",
+  "ctaBtn": "Let’s Work Together"
 }
 
 
