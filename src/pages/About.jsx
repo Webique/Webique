@@ -2,7 +2,16 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { FaLightbulb, FaRocket, FaHandshake } from "react-icons/fa";
+import {
+  FaLightbulb,
+  FaRocket,
+  FaHandshake,
+  FaLinkedin,
+  FaInstagram,
+  FaWhatsapp
+} from "react-icons/fa";
+
+
 
 export default function About() {
   const { t } = useTranslation();
@@ -12,19 +21,29 @@ export default function About() {
     {
       name: "Yosuf",
       image: "/founders/yosuf.jpg",
-      description: "CTO · From Egypt · Studying Computer Science"
+      description: t("aboutPage.founders.yosuf"),
+      linkedin: "https://www.linkedin.com/in/yosuf",
+      instagram: "https://www.instagram.com/yosuf",
+      whatsapp: "https://wa.me/201234567890"
     },
     {
       name: "Co-Founder 2",
       image: "/founders/founder2.jpg",
-      description: "Creative Director · From Saudi Arabia · Studying Digital Media"
+      description: t("aboutPage.founders.founder2"),
+      linkedin: "https://www.linkedin.com/in/founder2",
+      instagram: "https://www.instagram.com/founder2",
+      whatsapp: "https://wa.me/966500000000"
     },
     {
       name: "Co-Founder 3",
       image: "/founders/founder3.jpg",
-      description: "Marketing Lead · From Jordan · Studying Business & Marketing"
+      description: t("aboutPage.founders.founder3"),
+      linkedin: "https://www.linkedin.com/in/founder3",
+      instagram: "https://www.instagram.com/founder3",
+      whatsapp: "https://wa.me/962790000000"
     }
   ];
+  
 
   const values = [
     { icon: <FaLightbulb size={36} />, title: t("aboutPage.creativity") },
@@ -71,9 +90,21 @@ export default function About() {
           alt={founder.name}
           className="w-28 h-28 rounded-full object-cover mb-4 border-4 border-accent shadow"
         />
-        <h3 className="text-xl font-semibold text-gray-900">
-          {founder.name}
-        </h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+  {founder.name}
+</h3>
+<div className="flex justify-center gap-4">
+  <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-gray-800 transition">
+    <FaLinkedin size={20} />
+  </a>
+  <a href={founder.instagram} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-gray-800 transition">
+    <FaInstagram size={20} />
+  </a>
+  <a href={founder.whatsapp} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-gray-800 transition">
+    <FaWhatsapp size={20} />
+  </a>
+</div>
+
       </div>
 
       {/* Hidden Description - Expands only when hovered */}

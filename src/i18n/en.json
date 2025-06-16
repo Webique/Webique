@@ -48,13 +48,58 @@
   "innovation": "Innovation",
   "integrity": "Integrity",
   "ctaText": "Ready to elevate your brand with us?",
-  "ctaBtn": "Let’s Work Together"
+  "ctaBtn": "Let’s Work Together",
+  "founders": {
+    "yosuf": "CTO · From Egypt · Studying Computer Science",
+    "founder2": "Creative Director · From Saudi Arabia · Studying Digital Media",
+    "founder3": "Marketing Lead · From Jordan · Studying Business & Marketing"
+  }
+},
+"servicesPage": {
+  "title": "Our Services",
+  "subtitle": "We offer full-service packages to build your online presence — from stunning websites to smart content strategies.",
+
+  "website": {
+    "title": "Website Packages",
+    "basicTitle": "Basic Website",
+    "basicDesc": "A professionally built website and domain registration, perfect for those who want to establish an online presence quickly without ongoing updates. Fast setup, simple and clean, no maintenance included.",
+    "standardTitle": "Standard Website",
+    "standardDesc": "Includes everything from the Basic plan plus continued support and changes — whether small edits or complete redesigns. Great for businesses that evolve over time.",
+    "premiumTitle": "Premium Website",
+    "premiumDesc": "Our most complete website solution. Includes domain, continuous support, custom email setup, and full-stack development — for startups, e-commerce, or custom applications."
+  },
+
+  "social": {
+    "title": "Social Media Packages",
+    "basicTitle": "Basic Content Bundle",
+    "basicDesc": "A collection of professional posts and stories delivered as a ready-to-use pack. Best for seasonal campaigns or a quick boost. No scheduling or monthly management included.",
+    "standardTitle": "Monthly Content Management",
+    "standardDesc": "Ongoing account management including weekly posts and stories. We handle design, planning, and scheduling, tailored to your brand voice and calendar.",
+    "ondemandTitle": "On-Demand Content Creation",
+    "ondemandDesc": "Get custom-designed posts and stories whenever you need them — no limits, no fixed plan. Perfect for influencers, campaigns, or fast-paced brands."
+  }
+
+  
+},
+"formsPage": {
+  "title": "Tell Us About Your Idea",
+  "email": "Email Address",
+  "service": "Selected Service",
+  "idea": "Describe your project or idea...",
+  "submit": "Submit Inquiry",
+  "services": {
+    "website-basic": "Basic Website",
+    "website-standard": "Standard Website",
+    "website-premium": "Premium Website",
+    "social-basic": "Basic Content Bundle",
+    "social-standard": "Monthly Content Management",
+    "social-ondemand": "On-Demand Content Creation"
+  }
+}
+
 }
 
 
 
 
-  
-    
-  }
   
