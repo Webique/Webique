@@ -19,3 +19,9 @@ body::before {
   z-index: -1;
   pointer-events: none;
 }
+/* optional glass style class */
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}

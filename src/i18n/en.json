@@ -95,7 +95,15 @@
     "social-standard": "Monthly Content Management",
     "social-ondemand": "On-Demand Content Creation"
   }
+},
+"contactPage": {
+  "title": "Let's Connect",
+  "description": "Have a project in mind? Let’s make it happen. Our team is ready to bring your vision to life with design, strategy, and innovation.",
+  "email": "Email Us",
+  "phone": "Call or WhatsApp Us",
+  "cta": "Send Us an Email"
 }
+
 
 }
 

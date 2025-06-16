@@ -38,7 +38,9 @@ const Navbar = () => {
     const newLang = lang === "en" ? "ar" : "en";
     setLang(newLang);
     i18n.changeLanguage(newLang);
+    localStorage.setItem("i18nLang", newLang); // ✅ Save selected lang
   };
+  
 
   const navItems = [
     { label: t("home"), href: "/" },
