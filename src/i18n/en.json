@@ -1,0 +1,50 @@
+{
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "work": "Our Work",
+    "language": "Language",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "allRightsReserved": "All rights reserved.",
+    "backToTop": "Back to Top",
+    "hero": {
+    "headline": "We Design",
+    "typewriter": ["Websites", "Brands", "Experiences", "Results"],
+    "description": "Webique is a creative digital agency that transforms businesses with design and marketing solutions tailored for impact.",
+    "cta": "Explore Our Services"
+  },
+  "aboutSection": {
+  "title": "About Webique",
+  "description": "At Webique, we craft high-end websites, brands, and marketing experiences for businesses that want to stand out. With a focus on design, technology, and storytelling, we build digital identities that leave a lasting impact.",
+  "cta": "Learn More About Us"
+},
+"servicesSection": {
+  "title": "We Offer",
+  "web": "Web Design",
+  "brand": "Branding",
+  "marketing": "Marketing Strategy",
+  "analytics": "SEO & Analytics",
+  "description": "Our expert team delivers a full suite of services that elevate your brand — from stunning websites and branding to growth-focused marketing and deep analytics.",
+  "cta": "Explore Our Services"
+},
+"workSection": {
+  "title": "Our Work",
+  "description": "We’ve proudly collaborated with over 50 businesses across the Middle East, creating impactful digital experiences that elevate their brand and reach.",
+  "cta": "View Our Work",
+  "visit": "Visit Site"
+},
+"contactSection": {
+  "title": "Let's Connect",
+  "description": "Have a project in mind? Let’s make it happen. Our team is ready to bring your vision to life with design, strategy, and innovation.",
+  "cta": "Contact Us"
+}
+
+
+
+
+  
+    
+  }
+  
