@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Form from "./pages/Form";
+import Work from "./pages/Work";
 
 
 
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/form" element={<Form />} />
+            <Route path="/work" element={<Work />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <Outlet />

@@ -102,7 +102,21 @@
   "email": "Email Us",
   "phone": "Call or WhatsApp Us",
   "cta": "Send Us an Email"
+},
+"workPage": {
+  "title": "Our Work",
+  "description": "We’ve proudly collaborated with over 50 businesses across the Middle East, creating impactful digital experiences that elevate their brand and reach.",
+  "visit": "Visit Site",
+  "socialTitle": "Social Media Accounts We’ve Managed",
+  "socialDescription": "Beyond websites, we help brands grow on social platforms through strategic content, consistent design, and audience engagement.",
+  "showWeb": "Show Websites",
+  "hideWeb": "Hide Websites",
+  "showSocial": "Show Social Media",
+  "hideSocial": "Hide Social Media"
 }
+
+
+
 
 
 }
