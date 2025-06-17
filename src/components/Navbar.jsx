@@ -58,16 +58,28 @@ const Navbar = () => {
       className="fixed top-0 left-0 w-full z-[999] bg-white/80 backdrop-blur-lg shadow-xl border-b border-[#D69D70]"
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
-        <a href="/" className="flex items-center gap-2">
-          <motion.img
-            src="/logo.jpg"
-            alt="Webique Logo"
-            className="h-12 w-auto object-contain drop-shadow-lg"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          />
-        </a>
+      <a href="/" className="flex items-center gap-3">
+  <motion.img
+    src="/logo.jpg"
+    alt="Webique Logo"
+    className="h-12 w-auto object-contain drop-shadow-lg"
+    initial={{ scale: 0.8, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    transition={{ duration: 0.5, ease: "easeOut" }}
+  />
+ <motion.span
+  className="text-2xl text-black"
+  style={{ fontFamily: "'Anton', sans-serif", letterSpacing: "0.5px" }}
+  initial={{ opacity: 0, x: -10 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+>
+  Webique
+</motion.span>
+
+
+</a>
+
 
         <div className="flex items-center gap-4">
           <button

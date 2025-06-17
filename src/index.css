@@ -15,7 +15,7 @@ body::before {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.15;
-  filter: blur(1.5px);
+  filter: blur(3.75px);
   z-index: -1;
   pointer-events: none;
 }
