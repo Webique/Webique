@@ -52,14 +52,14 @@ const Footer = () => {
 
 
         {/* Links */}
-        <div className="flex-1 space-y-2 text-sm">
+    { /*   <div className="flex-1 space-y-2 text-sm">
           <a href="/privacy" className="block hover:text-[#D69D70] transition duration-300 font-medium">
             {t("privacy") || "Privacy Policy"}
           </a>
           <a href="/terms" className="block hover:text-[#D69D70] transition duration-300 font-medium">
             {t("terms") || "Terms of Service"}
           </a>
-        </div>
+        </div>*/}
 
         {/* Social + Scroll */}
         <div className="flex-1 flex flex-col items-center md:items-end gap-4">

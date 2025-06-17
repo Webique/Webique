@@ -46,7 +46,7 @@ const Navbar = () => {
     { label: t("home"), href: "/" },
     { label: t("about"), href: "/about" },
     { label: t("services"), href: "/services" },
-    { label: t("work"), href: "/work" },
+   // { label: t("work"), href: "/work" },
     { label: t("contact"), href: "/contact" },
   ];
 

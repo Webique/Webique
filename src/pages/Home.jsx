@@ -212,7 +212,7 @@ export default function Home() {
       viewport={{ once: true }}
     >
       <img
-        src="/images/services.jpg"
+        src="/images/services.png"
         alt="Our Services"
         className="rounded-2xl shadow-xl w-full object-cover max-h-[400px]"
       />
