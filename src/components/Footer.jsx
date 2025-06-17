@@ -27,22 +27,29 @@ const Footer = () => {
       className="w-full bg-white/70 backdrop-blur-md border-t border-[#D69D70] shadow-inner pt-8"
     >
       <div className="max-w-7xl mx-auto px-4 pb-6 flex flex-col md:flex-row justify-between items-start gap-6 text-black">
-        {/* Contact Info */}
-        <div className="flex-1 space-y-2">
-          <h4 className="text-lg font-bold text-black">Webique</h4>
-          <p className="flex items-center gap-2 text-sm">
-            <FaMapMarkerAlt className="text-[#D69D70]" />
-            Manchester, United Kingdom
-          </p>
-          <p className="flex items-center gap-2 text-sm">
-            <FaPhoneAlt className="text-[#D69D70]" />
-            +966 558 426 221
-          </p>
-          <p className="flex items-center gap-2 text-sm">
-            <FaEnvelope className="text-[#D69D70]" />
-            startwithwebique@gmail.com
-          </p>
-        </div>
+      {/* Contact Info */}
+<div className="flex-1 space-y-2">
+  <h4 className="text-lg font-bold text-black">Webique</h4>
+  <p className="flex items-center gap-2 text-sm">
+    <FaMapMarkerAlt className="text-[#D69D70]" />
+    Manchester, United Kingdom
+  </p>
+  <a
+    href="tel:+966558426221"
+    className="flex items-center gap-2 text-sm hover:text-[#D69D70] transition"
+  >
+    <FaPhoneAlt className="text-[#D69D70]" />
+    +966 558 426 221
+  </a>
+  <a
+    href="mailto:startwithwebique@gmail.com"
+    className="flex items-center gap-2 text-sm hover:text-[#D69D70] transition break-all"
+  >
+    <FaEnvelope className="text-[#D69D70]" />
+    startwithwebique@gmail.com
+  </a>
+</div>
+
 
         {/* Links */}
         <div className="flex-1 space-y-2 text-sm">
