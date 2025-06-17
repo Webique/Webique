@@ -6,11 +6,14 @@ import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import TextTransition, { presets } from "react-text-transition";
+import ContactPopup from "../components/ContactPopup"; // adjust path if different
+
 
 export default function Home() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [showPopup, setShowPopup] = useState(false);
 
   // Scramble words for services section
   const TEXTS = [
@@ -29,55 +32,58 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
-      <div
+    {/* Hero Section */}
+<div
   className="min-h-screen w-full flex items-center justify-center px-6 sm:px-12 bg-cover bg-center"
   style={{ backgroundImage: "url('/pattern.jpg')" }}
 >
-        <div className="text-center max-w-4xl w-full">
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6 text-center text-gray-900"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            {t("hero.headline")}{" "}
-            <span className="text-accent">
-              <TypeAnimation
-                key={i18n.language}
-                sequence={[
-                  ...t("hero.typewriter", { returnObjects: true }).flatMap(word => [word, 3000])
-                ]}
-                speed={25}
-                wrapper="span"
-                repeat={Infinity}
-              />
-            </span>
-          </motion.h1>
+  <div className="text-center max-w-4xl w-full">
+    <motion.h1
+      className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6 text-center text-gray-900"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
+      Let’s take your brand to the next level{" "}
+      <span className="text-accent">
+        <TypeAnimation
+          key={i18n.language}
+          sequence={[
+            "Web Design", 3000,
+            "Brand Strategy", 3000,
+            "Performance Marketing", 3000,
+          ]}
+          speed={25}
+          wrapper="span"
+          repeat={Infinity}
+        />
+      </span>
+    </motion.h1>
 
-          <motion.p
-            className="text-lg sm:text-xl text-gray-700 mb-8 max-w-2xl mx-auto text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            {t("hero.description")}
-          </motion.p>
+    <motion.p
+      className="text-lg sm:text-xl text-gray-700 mb-8 max-w-2xl mx-auto text-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.6 }}
+    >
+      You probably saw our ad — now you're here. Just leave your info and we’ll reach out within 2 days to talk about your goals and how Webique can help.
+    </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-          >
-            <Link
-              to="/services"
-              className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
-            >
-              {t("hero.cta")}
-            </Link>
-          </motion.div>
-        </div>
-      </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1 }}
+    >
+      <button
+        onClick={() => setShowPopup(true)} // 👈 assuming you’ve declared this state in the parent
+        className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
+      >
+        Let’s Work Together
+      </button>
+    </motion.div>
+  </div>
+</div>
+
 
 
 {/* Trusted Companies Section */}
@@ -309,16 +315,24 @@ export default function Home() {
     <p className="text-lg sm:text-xl mb-10 text-white/90 max-w-2xl mx-auto">
       From sleek websites to strategic marketing campaigns — Webique powers your business growth.
     </p>
-    <Link
-      to="/contact"
-      className="inline-block px-8 py-4 bg-[#D69D70] text-black font-semibold rounded-full shadow-lg text-lg hover:scale-105 transition-transform duration-300"
-    >
-      Get a Free Consultation
-    </Link>
+    <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 1 }}
+>
+  <button
+    onClick={() => setShowPopup(true)}
+    className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
+  >
+    Let’s Work Together
+  </button>
+</motion.div>
+
   </motion.div>
 </section>
 
 
+{showPopup && <ContactPopup onClose={() => setShowPopup(false)} />}
 
     </>
   );
