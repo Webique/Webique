@@ -30,7 +30,10 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <div className="min-h-screen w-full flex items-center justify-center px-6 sm:px-12">
+      <div
+  className="min-h-screen w-full flex items-center justify-center px-6 sm:px-12 bg-cover bg-center"
+  style={{ backgroundImage: "url('/pattern.jpg')" }}
+>
         <div className="text-center max-w-4xl w-full">
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6 text-center text-gray-900"
@@ -214,9 +217,6 @@ export default function Home() {
 
 
 
-    {/* Section Divider */}
-    <div className="w-full h-1 bg-accent opacity-30 my-10" />
-
       {/* About Section */}
       <section
         ref={ref}
@@ -253,98 +253,13 @@ export default function Home() {
           </Link>
         </motion.div>
       </section>
-       {/* Section Divider */}
-       <div className="w-full h-1 bg-accent opacity-30 my-10" />
 
-     {/* Our Work Section */}
-<section className="w-full px-6 sm:px-12 py-16 max-w-7xl mx-auto text-center">
-  <motion.h2
-    className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6"
-    initial={{ opacity: 0, scale: 0.95 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.8 }}
-    viewport={{ once: true }}
-  >
-    {t("workSection.title")}
-  </motion.h2>
 
-  <motion.p
-    className="text-gray-700 text-lg sm:text-xl leading-relaxed mb-12"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.3, duration: 1 }}
-    viewport={{ once: true }}
-  >
-    {t("workSection.description")}
-  </motion.p>
 
-  {/* Portfolio Grid */}
-  <motion.div
-    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.4, duration: 1 }}
-    viewport={{ once: true }}
-  >
-    {[
-      {
-        title: "Cinema Al Balad",
-        url: "https://cinemaalbalad.com",
-        display: "cinemaalbalad.com",
-      },
-      {
-        title: "Fuego Sa",
-        url: "https://fuegosa.com",
-        display: "fuegosa.com",
-      },
-      {
-        title: "Layali Maser",
-        url: "https://layalimaser-sa.com",
-        display: "layalimaser-sa.com",
-      },
-      {
-        title: "Hambella",
-        url: "https://www.hambella-bh.com",
-        display: "hambella-bh.com",
-      },
-    ].map((site, index) => (
-      <div
-        key={index}
-        className="relative group bg-white/60 backdrop-blur-md border border-gray-200 rounded-3xl p-6 transition-transform duration-300 hover:scale-[1.03] hover:shadow-xl overflow-hidden"
-      >
-        <div className="absolute -top-6 -left-6 opacity-10 w-32 h-32 bg-[url('/scribble.svg')] bg-contain bg-no-repeat pointer-events-none rotate-[20deg]" />
-        <div className="relative z-10">
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">{site.title}</h3>
-          <p className="text-accent font-medium">{site.display}</p>
-        </div>
-        <div className="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 z-20 rounded-3xl">
-          <a
-            href={site.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white text-lg font-semibold underline hover:scale-105 transition"
-          >
-            {t("workSection.visit")}
-          </a>
-        </div>
-      </div>
-    ))}
-  </motion.div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.6, duration: 0.8 }}
-    viewport={{ once: true }}
-  >
-    <Link
-      to="/work"
-      className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
-    >
-      {t("workSection.cta")}
-    </Link>
-  </motion.div>
-</section>
+
+
+
 {/* Global Reach Section */}
 <section className="w-full bg-[#e6f2f1] py-20 px-6 sm:px-12 relative overflow-hidden">
   <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch gap-10 md:gap-16 min-h-[550px]">
@@ -379,42 +294,30 @@ export default function Home() {
 
 
 
-{/* Contact Section */}
-<section className="w-full px-6 sm:px-12 py-16 max-w-5xl mx-auto text-center">
-  <motion.h2
-    className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6"
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
+{/* Final CTA Section */}
+<section className="w-full bg-[#00323d] text-white px-6 sm:px-12 py-24 text-center">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
+    className="max-w-5xl mx-auto"
   >
-    {t("contactSection.title")}
-  </motion.h2>
-
-  <motion.p
-    className="text-gray-700 text-lg sm:text-xl leading-relaxed mb-8"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.3, duration: 1 }}
-    viewport={{ once: true }}
-  >
-    {t("contactSection.description")}
-  </motion.p>
-
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.6, duration: 0.8 }}
-    viewport={{ once: true }}
-  >
+    <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6">
+      Discover the most effective digital partner in the Middle East
+    </h2>
+    <p className="text-lg sm:text-xl mb-10 text-white/90 max-w-2xl mx-auto">
+      From sleek websites to strategic marketing campaigns — Webique powers your business growth.
+    </p>
     <Link
       to="/contact"
-      className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
+      className="inline-block px-8 py-4 bg-[#D69D70] text-black font-semibold rounded-full shadow-lg text-lg hover:scale-105 transition-transform duration-300"
     >
-      {t("contactSection.cta")}
+      Get a Free Consultation
     </Link>
   </motion.div>
 </section>
+
 
 
     </>

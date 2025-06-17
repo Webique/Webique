@@ -25,8 +25,8 @@ export default function App() {
       {/* ✅ Add 'relative' to ensure background pseudo-element works */}
       <div className="relative flex flex-col min-h-screen bg-transparent text-white">
         <Navbar />
-        <main className="flex-1 p-4 pt-20"> {/* pt-20 to avoid overlap with fixed navbar */}
-          <Routes>
+        <main className="flex-1 pt-20">
+        <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />

@@ -29,18 +29,18 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 pb-6 flex flex-col md:flex-row justify-between items-start gap-6 text-black">
         {/* Contact Info */}
         <div className="flex-1 space-y-2">
-        <h4 className="text-lg font-bold text-black">Webique</h4>
+          <h4 className="text-lg font-bold text-black">Webique</h4>
           <p className="flex items-center gap-2 text-sm">
             <FaMapMarkerAlt className="text-[#D69D70]" />
-            Riyadh, Saudi Arabia
+            Manchester, United Kingdom
           </p>
           <p className="flex items-center gap-2 text-sm">
             <FaPhoneAlt className="text-[#D69D70]" />
-            +966 500 000 000
+            +966 558 426 221
           </p>
           <p className="flex items-center gap-2 text-sm">
             <FaEnvelope className="text-[#D69D70]" />
-            info@webique.com
+            startwithwebique@gmail.com
           </p>
         </div>
 
@@ -57,16 +57,36 @@ const Footer = () => {
         {/* Social + Scroll */}
         <div className="flex-1 flex flex-col items-center md:items-end gap-4">
           <div className="flex gap-4 text-[#D69D70] text-xl">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-black transition duration-300">
+            <a
+              href="https://instagram.com/startwithwebique"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition duration-300"
+            >
               <FaInstagram />
             </a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-black transition duration-300">
+            <a
+              href="https://tiktok.com/@startwithwebique"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition duration-300"
+            >
               <FaTiktok />
             </a>
-            <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer" className="hover:text-black transition duration-300">
+            <a
+              href="https://wa.me/966558426221"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition duration-300"
+            >
               <FaWhatsapp />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-black transition duration-300">
+            <a
+              href="https://www.linkedin.com/in/webique-agency-05b207348"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition duration-300"
+            >
               <FaLinkedin />
             </a>
           </div>
