@@ -2,79 +2,103 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaInstagram,
+  FaTiktok,
+  FaLinkedin,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function Contact() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
 
   return (
-    <div className={`min-h-screen flex items-center justify-center px-6 sm:px-12 py-20 bg-white ${isRTL ? "rtl text-right" : ""}`}>
+    <div className={`min-h-screen px-6 sm:px-12 py-20 bg-white ${isRTL ? "rtl text-right" : ""}`}>
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="w-full max-w-5xl text-gray-900"
+        className="w-full max-w-4xl mx-auto text-gray-900"
       >
         {/* Title */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-            {t("contactPage.title")}
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            {t("contactPage.description")}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Contact Us</h1>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            Have a question or business inquiry? We’ll get back to you as soon as possible.
           </p>
         </div>
 
-        {/* Contact Options */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Email Card */}
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            className="glass-card p-8 rounded-3xl shadow-xl border border-gray-200 backdrop-blur-sm bg-white/70 hover:shadow-2xl transition-all"
-          >
-            <div className="flex flex-col items-center">
-              <FaEnvelope className="text-accent text-3xl mb-4" />
-              <h3 className="text-xl font-bold mb-2">{t("contactPage.email")}</h3>
-              <a
-                href="mailto:startwithwebique@gmail.com"
-                className="text-accent text-lg hover:underline text-center break-words"
-              >
-                startwithwebique@gmail.com
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Phone Card */}
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 200 }}
-            className="glass-card p-8 rounded-3xl shadow-xl border border-gray-200 backdrop-blur-sm bg-white/70 hover:shadow-2xl transition-all"
-          >
-            <div className="flex flex-col items-center">
-              <FaPhoneAlt className="text-accent text-3xl mb-4" />
-              <h3 className="text-xl font-bold mb-2">{t("contactPage.phone")}</h3>
-              <p className="text-gray-700">+966 56 172 2933</p>
-              <p className="text-gray-700">+966 55 842 6221</p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* CTA Button */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
+        {/* Contact Methods */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-14">
+          {/* Email */}
           <a
             href="mailto:startwithwebique@gmail.com"
-            className="inline-block px-8 py-4 bg-accent text-white font-semibold text-lg rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+            className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl p-5 hover:shadow-lg transition"
           >
-            {t("contactPage.cta")}
+            <FaEnvelope className="text-accent text-2xl" />
+            <div>
+              <p className="font-semibold text-lg">Email</p>
+              <p className="text-gray-700 text-sm break-words">startwithwebique@gmail.com</p>
+            </div>
           </a>
-        </motion.div>
+
+          {/* Phone – Website */}
+          <a
+            href="tel:+966558426221"
+            className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl p-5 hover:shadow-lg transition"
+          >
+            <FaPhoneAlt className="text-accent text-2xl" />
+            <div>
+              <p className="font-semibold text-lg">Call Us (Website)</p>
+              <p className="text-gray-700 text-sm">+966 55 842 6221</p>
+            </div>
+          </a>
+
+          {/* Phone – Marketing */}
+          <a
+            href="tel:+966561722933"
+            className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl p-5 hover:shadow-lg transition"
+          >
+            <FaPhoneAlt className="text-accent text-2xl" />
+            <div>
+              <p className="font-semibold text-lg">Call Us (Marketing)</p>
+              <p className="text-gray-700 text-sm">+966 56 172 2933</p>
+            </div>
+          </a>
+
+          {/* WhatsApp */}
+          <a
+            href="https://wa.me/966558426221"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl p-5 hover:shadow-lg transition"
+          >
+            <FaWhatsapp className="text-accent text-2xl" />
+            <div>
+              <p className="font-semibold text-lg">WhatsApp</p>
+              <p className="text-gray-700 text-sm">+966 55 842 6221</p>
+            </div>
+          </a>
+        </div>
+
+        {/* Social Media */}
+        <div className="text-center">
+          <p className="text-xl font-semibold mb-4">Follow us</p>
+          <div className="flex justify-center gap-6 flex-wrap">
+            <a href="https://www.instagram.com/startwithwebique" target="_blank" rel="noopener noreferrer" className="text-accent text-2xl hover:scale-110 transition">
+              <FaInstagram />
+            </a>
+            <a href="https://www.tiktok.com/@startwithwebique" target="_blank" rel="noopener noreferrer" className="text-accent text-2xl hover:scale-110 transition">
+              <FaTiktok />
+            </a>
+            <a href="https://www.linkedin.com/in/webique-agency-05b207348" target="_blank" rel="noopener noreferrer" className="text-accent text-2xl hover:scale-110 transition">
+              <FaLinkedin />
+            </a>
+          </div>
+        </div>
       </motion.div>
     </div>
   );
