@@ -124,14 +124,14 @@ const Navbar = () => {
       </div>
 
       <AnimatePresence>
-        {menuOpen && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="bg-white/90 md:hidden overflow-hidden px-6 pb-4 pt-2 border-t border-[#D69D70]"
-          >
+  {menuOpen && (
+    <motion.nav
+      initial={{ opacity: 0, scaleY: 0 }}
+      animate={{ opacity: 1, scaleY: 1 }}
+      exit={{ opacity: 0, scaleY: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="origin-top bg-white/90 md:hidden overflow-hidden px-6 pb-4 pt-2 border-t border-[#D69D70]"
+    >
             {navItems.map((item) => (
               <a
                 key={item.href}

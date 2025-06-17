@@ -147,15 +147,14 @@ export default function Home() {
     </div>
   </div>
 </section>
-
 {/* Services Section */}
 <section className="w-full bg-gradient-to-b from-gray-900 to-gray-800 text-white py-20 px-6 sm:px-12">
   <div className={`max-w-6xl mx-auto flex flex-col ${isRTL ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-10 md:gap-16`}>
-    
+
     {/* Left Text Content */}
-    <div className={`w-full md:w-1/2 ${isRTL ? "text-right" : "text-center md:text-left"}`}>
+    <div className="w-full md:w-1/2 text-center">
       <motion.h2
-        className="text-3xl sm:text-4xl font-bold mb-2"
+        className="text-3xl sm:text-4xl font-bold mb-2 text-center"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -171,11 +170,13 @@ export default function Home() {
         transition={{ delay: 0.2, duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <span className="text-accent font-bold text-3xl sm:text-4xl block">
-          <TextTransition springConfig={presets.gentle}>
-            {TEXTS[index]}
-          </TextTransition>
-        </span>
+        <div className="w-full text-center">
+          <span className="text-accent font-bold text-3xl sm:text-4xl inline-block">
+            <TextTransition springConfig={presets.gentle}>
+              {TEXTS[index]}
+            </TextTransition>
+          </span>
+        </div>
       </motion.div>
 
       <motion.p
