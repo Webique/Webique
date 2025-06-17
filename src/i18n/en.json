@@ -9,36 +9,40 @@
     "terms": "Terms of Service",
     "allRightsReserved": "All rights reserved.",
     "backToTop": "Back to Top",
-    "hero": {
-    "headline": "We Design",
-    "typewriter": ["Websites", "Brands", "Experiences", "Results"],
-    "description": "Webique is a creative digital agency that transforms businesses with design and marketing solutions tailored for impact.",
+
+    "homePage": {
+  "hero": {
+    "headline": "Let’s elevate your brand with",
+    "typewriter": ["Web Design", "Brand Strategy", "Performance Marketing"],
+    "description": "You probably saw our ad — now you're here. Just leave your info and we’ll reach out within 2 days to talk about your goals and how Webique can help.",
+    "cta": "Let’s Work Together"
+  },
+  "trustedBy": "Empowering businesses through web, branding, and marketing solutions",
+  "servicesSection": {
+    "title": "We Offer",
+    "web": "Web Design",
+    "brand": "Branding",
+    "marketing": "Marketing Strategy",
+    "analytics": "SEO & Analytics",
+    "description": "Our expert team delivers a full suite of services that elevate your brand — from stunning websites and branding to growth-focused marketing and deep analytics.",
     "cta": "Explore Our Services"
   },
   "aboutSection": {
-  "title": "About Webique",
-  "description": "At Webique, we craft high-end websites, brands, and marketing experiences for businesses that want to stand out. With a focus on design, technology, and storytelling, we build digital identities that leave a lasting impact.",
-  "cta": "Learn More About Us"
-},
-"servicesSection": {
-  "title": "We Offer",
-  "web": "Web Design",
-  "brand": "Branding",
-  "marketing": "Marketing Strategy",
-  "analytics": "SEO & Analytics",
-  "description": "Our expert team delivers a full suite of services that elevate your brand — from stunning websites and branding to growth-focused marketing and deep analytics.",
-  "cta": "Explore Our Services"
-},
-"workSection": {
-  "title": "Our Work",
-  "description": "We’ve proudly collaborated with over 50 businesses across the Middle East, creating impactful digital experiences that elevate their brand and reach.",
-  "cta": "View Our Work",
-  "visit": "Visit Site"
-},
-"contactSection": {
-  "title": "Let's Connect",
-  "description": "Have a project in mind? Let’s make it happen. Our team is ready to bring your vision to life with design, strategy, and innovation.",
-  "cta": "Contact Us"
+    "title": "About Webique",
+    "description": "At Webique, we craft high-end websites, brands, and marketing experiences for businesses that want to stand out. With a focus on design, technology, and storytelling, we build digital identities that leave a lasting impact.",
+    "cta": "Learn More About Us"
+  },
+  "globalSection": {
+    "title": "Powering digital growth across the Middle East",
+    "stat1": "40+ completed digital projects",
+    "stat2": "Operations in 4 countries and expanding",
+    "stat3": "Strategic partnerships in web development, branding, and marketing"
+  },
+  "finalCta": {
+    "title": "Discover the most effective digital partner in the Middle East",
+    "description": "From sleek websites to strategic marketing campaigns — Webique powers your business growth.",
+    "cta": "Let’s Work Together"
+  }
 },
 "aboutPage": {
   "ourStory": "Our Story",
@@ -48,12 +52,7 @@
   "innovation": "Innovation",
   "integrity": "Integrity",
   "ctaText": "Ready to elevate your brand with us?",
-  "ctaBtn": "Let’s Work Together",
-  "founders": {
-    "yosuf": "CTO · From Egypt · Studying Computer Science",
-    "founder2": "Creative Director · From Saudi Arabia · Studying Digital Media",
-    "founder3": "Marketing Lead · From Jordan · Studying Business & Marketing"
-  }
+  "ctaBtn": "Let’s Work Together"
 },
 "servicesPage": {
   "title": "Our Services",

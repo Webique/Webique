@@ -1,5 +1,4 @@
-// Home.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -8,33 +7,31 @@ import { useInView } from "react-intersection-observer";
 import TextTransition, { presets } from "react-text-transition";
 import ContactPopup from "../components/ContactPopup"; // adjust path if different
 
-
 export default function Home() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const [showPopup, setShowPopup] = useState(false);
-
-  // Scramble words for services section
-  const TEXTS = [
-    t("servicesSection.web"),
-    t("servicesSection.brand"),
-    t("servicesSection.marketing"),
-    t("servicesSection.analytics")
-  ];
-
   const [index, setIndex] = useState(0);
+
+  // Dynamically update service texts on language change
+  const TEXTS = useMemo(() => [
+    t("homePage.servicesSection.web"),
+    t("homePage.servicesSection.brand"),
+    t("homePage.servicesSection.marketing"),
+    t("homePage.servicesSection.analytics")
+  ], [t, i18n.language]);
 
   useEffect(() => {
     const intervalId = setInterval(() => setIndex(i => (i + 1) % TEXTS.length), 4000);
     return () => clearInterval(intervalId);
-  }, [i18n.language]);
+  }, [TEXTS]);
 
   return (
     <>
-    {/* Hero Section */}
+{/* Hero Section */}
 <div
-  className="min-h-screen w-full flex items-center justify-center px-6 sm:px-12 bg-cover bg-center"
+  className="min-h-screen w-full flex items-center justify-center px-6 sm:px-12 py-36 sm:py-48 bg-cover bg-center"
   style={{ backgroundImage: "url('/pattern.jpg')" }}
 >
   <div className="text-center max-w-4xl w-full">
@@ -44,14 +41,14 @@ export default function Home() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >
-      Let’s take your brand to the next level{" "}
-      <span className="text-accent">
+      {t("homePage.hero.headline")}
+      <span className="text-accent block mt-2">
         <TypeAnimation
           key={i18n.language}
           sequence={[
-            "Web Design", 3000,
-            "Brand Strategy", 3000,
-            "Performance Marketing", 3000,
+            t("homePage.hero.typewriter.0"), 3000,
+            t("homePage.hero.typewriter.1"), 3000,
+            t("homePage.hero.typewriter.2"), 3000,
           ]}
           speed={25}
           wrapper="span"
@@ -66,7 +63,7 @@ export default function Home() {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.6 }}
     >
-      You probably saw our ad — now you're here. Just leave your info and we’ll reach out within 2 days to talk about your goals and how Webique can help.
+      {t("homePage.hero.description")}
     </motion.p>
 
     <motion.div
@@ -75,10 +72,10 @@ export default function Home() {
       transition={{ delay: 1 }}
     >
       <button
-        onClick={() => setShowPopup(true)} // 👈 assuming you’ve declared this state in the parent
+        onClick={() => setShowPopup(true)}
         className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
       >
-        Let’s Work Together
+        {t("homePage.hero.cta")}
       </button>
     </motion.div>
   </div>
@@ -90,7 +87,7 @@ export default function Home() {
 <section className="w-full py-12 px-0 sm:px-12 bg-white overflow-hidden">
   <div className="w-full text-center">
     <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-10 px-6 sm:px-0">
-      {t("home.trustedBy", "Empowering businesses through web, branding, and marketing solutions")}
+      {t("homePage.trustedBy")}
     </h2>
 
     {/* Desktop Grid */}
@@ -151,41 +148,44 @@ export default function Home() {
   </div>
 </section>
 
-
-
-
 {/* Services Section */}
 <section className="w-full bg-gradient-to-b from-gray-900 to-gray-800 text-white py-20 px-6 sm:px-12">
-  <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+  <div className={`max-w-6xl mx-auto flex flex-col ${isRTL ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-10 md:gap-16`}>
     
     {/* Left Text Content */}
-    <div className="w-full md:w-1/2 text-center md:text-left">
-<motion.h2
-  className="text-3xl sm:text-4xl font-bold mb-6"
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
->
-  {t("servicesSection.title")}
-  <span className="block w-full flex justify-center md:justify-start mt-2">
-    <span className="text-accent font-bold text-3xl sm:text-4xl">
-      <TextTransition springConfig={presets.gentle}>
-        {TEXTS[index]}
-      </TextTransition>
-    </span>
-  </span>
-</motion.h2>
+    <div className={`w-full md:w-1/2 ${isRTL ? "text-right" : "text-center md:text-left"}`}>
+      <motion.h2
+        className="text-3xl sm:text-4xl font-bold mb-2"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        {t("homePage.servicesSection.title")}
+      </motion.h2>
 
+      <motion.div
+        className="mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <span className="text-accent font-bold text-3xl sm:text-4xl block">
+          <TextTransition springConfig={presets.gentle}>
+            {TEXTS[index]}
+          </TextTransition>
+        </span>
+      </motion.div>
 
       <motion.p
         className="text-gray-300 text-lg sm:text-xl leading-relaxed mb-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 1 }}
+        transition={{ delay: 0.4, duration: 1 }}
         viewport={{ once: true }}
       >
-        {t("servicesSection.description")}
+        {t("homePage.servicesSection.description")}
       </motion.p>
 
       <motion.div
@@ -198,7 +198,7 @@ export default function Home() {
           to="/services"
           className="px-6 py-3 bg-white text-gray-900 rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
         >
-          {t("servicesSection.cta")}
+          {t("homePage.servicesSection.cta")}
         </Link>
       </motion.div>
     </div>
@@ -221,49 +221,42 @@ export default function Home() {
 </section>
 
 
+{/* About Section */}
+<section
+  ref={ref}
+  className="w-full px-6 sm:px-12 py-16 max-w-5xl mx-auto text-center"
+>
+  <motion.h2
+    className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6"
+    initial={{ opacity: 0, y: 40 }}
+    animate={inView ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.9 }}
+  >
+    {t("homePage.aboutSection.title")}
+  </motion.h2>
 
+  <motion.p
+    className="text-gray-700 text-lg sm:text-xl leading-relaxed mb-8"
+    initial={{ opacity: 0, y: 20 }}
+    animate={inView ? { opacity: 1, y: 0 } : {}}
+    transition={{ delay: 0.9, duration: 1 }}
+  >
+    {t("homePage.aboutSection.description")}
+  </motion.p>
 
-      {/* About Section */}
-      <section
-        ref={ref}
-        className="w-full px-6 sm:px-12 py-16 max-w-5xl mx-auto text-center"
-      >
-        <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6"
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.9 }}
-        >
-          {t("aboutSection.title")}
-        </motion.h2>
-
-        <motion.p
-          className="text-gray-700 text-lg sm:text-xl leading-relaxed mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.9, duration: 1 }}
-        >
-          {t("aboutSection.description")}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.9, duration: 0.8 }}
-        >
-          <Link
-            to="/about"
-            className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
-          >
-            {t("aboutSection.cta")}
-          </Link>
-        </motion.div>
-      </section>
-
-
-
-
-
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={inView ? { opacity: 1, y: 0 } : {}}
+    transition={{ delay: 0.9, duration: 0.8 }}
+  >
+    <Link
+      to="/about"
+      className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
+    >
+      {t("homePage.aboutSection.cta")}
+    </Link>
+  </motion.div>
+</section>
 
 
 {/* Global Reach Section */}
@@ -272,16 +265,14 @@ export default function Home() {
     
     {/* Left Content */}
     <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-left z-10">
-      {/* Title */}
       <h2 className="text-4xl sm:text-6xl font-black text-[#00323d] leading-tight mb-8">
-        Powering digital growth<br />across the Middle East
+        {t("homePage.globalSection.title")}
       </h2>
 
-      {/* Stats */}
       <div className="text-[#00323d] text-lg sm:text-xl space-y-4 font-bold">
-        <p>40+ completed digital projects</p>
-        <p>Operations in 4 countries and expanding</p>
-        <p>Strategic partnerships in web development, branding, and marketing</p>
+        <p>{t("homePage.globalSection.stat1")}</p>
+        <p>{t("homePage.globalSection.stat2")}</p>
+        <p>{t("homePage.globalSection.stat3")}</p>
       </div>
     </div>
 
@@ -299,7 +290,6 @@ export default function Home() {
 
 
 
-
 {/* Final CTA Section */}
 <section className="w-full bg-[#00323d] text-white px-6 sm:px-12 py-24 text-center">
   <motion.div
@@ -310,24 +300,23 @@ export default function Home() {
     className="max-w-5xl mx-auto"
   >
     <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-6">
-      Discover the most effective digital partner in the Middle East
+      {t("homePage.finalCta.title")}
     </h2>
     <p className="text-lg sm:text-xl mb-10 text-white/90 max-w-2xl mx-auto">
-      From sleek websites to strategic marketing campaigns — Webique powers your business growth.
+      {t("homePage.finalCta.description")}
     </p>
     <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1 }}
->
-  <button
-    onClick={() => setShowPopup(true)}
-    className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
-  >
-    Let’s Work Together
-  </button>
-</motion.div>
-
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1 }}
+    >
+      <button
+        onClick={() => setShowPopup(true)}
+        className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
+      >
+        {t("homePage.finalCta.cta")}
+      </button>
+    </motion.div>
   </motion.div>
 </section>
 
