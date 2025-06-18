@@ -13,6 +13,9 @@ export default function Home() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const [showPopup, setShowPopup] = useState(false);
   const [index, setIndex] = useState(0);
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
 
   // Dynamically update service texts on language change
   const TEXTS = useMemo(() => [
@@ -27,6 +30,30 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, [TEXTS]);
 
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("https://your-backend-url/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, phone }),
+      });
+  
+      const data = await res.json();
+      if (res.ok) {
+        alert("Submitted successfully!");
+        setEmail("");
+        setPhone("");
+        setShowPopup(false);
+      } else {
+        alert(data.error || "Submission failed");
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+      alert("Something went wrong");
+    }
+  };
+  
   return (
     <>
 {/* Hero Section */}
@@ -322,7 +349,16 @@ export default function Home() {
 </section>
 
 
-{showPopup && <ContactPopup onClose={() => setShowPopup(false)} />}
+{showPopup && (
+  <ContactPopup
+    email={email}
+    phone={phone}
+    setEmail={setEmail}
+    setPhone={setPhone}
+    onClose={() => setShowPopup(false)}
+    onSubmit={handleContactSubmit}
+  />
+)}
 
     </>
   );
