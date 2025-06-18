@@ -30,6 +30,32 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, [TEXTS]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("https://webique.onrender.com/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, phone }),
+      });
+  
+      const data = await res.json();
+  
+      if (res.ok) {
+        alert("Submitted!");
+        setEmail("");
+        setPhone("");
+        onClose();
+      } else {
+        alert(data.message || "Something went wrong.");
+      }
+    } catch (err) {
+      console.error("❌ Submit error", err);
+      alert("Server error.");
+    }
+  };
+  
+
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -351,13 +377,14 @@ export default function Home() {
 
 {showPopup && (
   <ContactPopup
-    email={email}
-    phone={phone}
-    setEmail={setEmail}
-    setPhone={setPhone}
-    onClose={() => setShowPopup(false)}
-    onSubmit={handleContactSubmit}
-  />
+  onClose={() => setShowPopup(false)}
+  email={email}
+  phone={phone}
+  setEmail={setEmail}
+  setPhone={setPhone}
+  onSubmit={handleSubmit}
+/>
+
 )}
 
     </>
