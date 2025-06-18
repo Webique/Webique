@@ -28,7 +28,7 @@ export default function ContactPopup({
         {submitted ? (
           <div className="text-center space-y-4">
             <p className="text-gray-800">
-              We’ve received your message and will contact you within 2 days.
+              We’ve received your details and will contact you within 2 days.
             </p>
             <button
               onClick={onClose}
