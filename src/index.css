@@ -30,5 +30,8 @@ body::before {
 }
 
 .animate-marquee {
+  display: flex; /* ensures horizontal layout */
   animation: marquee 14s linear infinite;
+  will-change: transform; /* boosts smoothness */
 }
+

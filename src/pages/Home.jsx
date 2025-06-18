@@ -138,7 +138,7 @@ export default function Home() {
 
     {/* Mobile Horizontal Marquee */}
     <div className="block md:hidden mt-4 relative overflow-hidden w-full">
-      <div className="flex animate-marquee space-x-8 w-max px-6">
+      <div className="flex animate-marquee space-x-8 w-max px-6 will-change-transform">
         {[
           "client1.png",
           "client2.png",
@@ -174,6 +174,10 @@ export default function Home() {
     </div>
   </div>
 </section>
+
+
+
+
 {/* Services Section */}
 <section className="w-full bg-gradient-to-b from-gray-900 to-gray-800 text-white py-20 px-6 sm:px-12">
   <div className={`max-w-6xl mx-auto flex flex-col ${isRTL ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-10 md:gap-16`}>
