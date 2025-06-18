@@ -4,19 +4,19 @@ export default function ContactPopup({ onClose, email, phone, setEmail, setPhone
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
       <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
-        <h2 className="text-xl font-semibold mb-4 text-center">Contact Us</h2>
+        <h2 className="text-xl font-semibold mb-4 text-center text-gray-900">Contact Us</h2>
         <form onSubmit={onSubmit} className="space-y-4">
           <input
             type="email"
             placeholder="Email"
-            className="w-full px-4 py-2 border rounded-md"
+            className="w-full px-4 py-2 border rounded-md text-gray-900"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="tel"
             placeholder="Phone (optional)"
-            className="w-full px-4 py-2 border rounded-md"
+            className="w-full px-4 py-2 border rounded-md text-gray-900"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
