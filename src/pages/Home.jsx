@@ -29,8 +29,7 @@ export default function Home() {
     const intervalId = setInterval(() => setIndex(i => (i + 1) % TEXTS.length), 4000);
     return () => clearInterval(intervalId);
   }, [TEXTS]);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
       const res = await fetch("https://webique.onrender.com/api/contact", {
         method: "POST",
@@ -41,16 +40,16 @@ export default function Home() {
       const data = await res.json();
   
       if (res.ok) {
-        alert("Submitted!");
         setEmail("");
         setPhone("");
-        setShowPopup(false); // ✅ Closes popup
+        return true; // success
       } else {
-        alert(data.message || "Something went wrong.");
+        console.error(data.message || "Submission failed");
+        return false;
       }
     } catch (err) {
       console.error("❌ Submit error", err);
-      alert("Server error.");
+      return false;
     }
   };
   

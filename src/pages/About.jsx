@@ -18,6 +18,33 @@ import {
 export default function About() {
   const { t } = useTranslation();
   const [showPopup, setShowPopup] = useState(false);
+  const [email, setEmail] = useState("");
+const [phone, setPhone] = useState("");
+
+
+const handleSubmit = async () => {
+  try {
+    const res = await fetch("https://webique.onrender.com/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, phone }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      setEmail("");
+      setPhone("");
+      return true;
+    } else {
+      console.error(data.message || "Submission failed");
+      return false;
+    }
+  } catch (err) {
+    console.error("❌ Submit error", err);
+    return false;
+  }
+};
 
   /*
   const founders = [
@@ -160,7 +187,16 @@ export default function About() {
   </button>
 </motion.div>
 
-{showPopup && <ContactPopup onClose={() => setShowPopup(false)} />}
+{showPopup && (
+  <ContactPopup
+    onClose={() => setShowPopup(false)}
+    email={email}
+    phone={phone}
+    setEmail={setEmail}
+    setPhone={setPhone}
+    onSubmit={handleSubmit}
+  />
+)}
 
     </div>
   );
