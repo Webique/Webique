@@ -59,7 +59,7 @@ export default function Home() {
 {/* Hero Section */}
 <div
   className="min-h-screen w-full flex items-center justify-center px-6 sm:px-12 py-36 sm:py-48 bg-cover bg-center"
-  style={{ backgroundImage: "url('/pattern.jpg')" }}
+  style={{ backgroundImage: "url('/bck1.jpg')" }}
 >
   <div className="text-center max-w-4xl w-full">
     <motion.h1
