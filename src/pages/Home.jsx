@@ -29,7 +29,6 @@ export default function Home() {
     const intervalId = setInterval(() => setIndex(i => (i + 1) % TEXTS.length), 4000);
     return () => clearInterval(intervalId);
   }, [TEXTS]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -45,7 +44,7 @@ export default function Home() {
         alert("Submitted!");
         setEmail("");
         setPhone("");
-        onClose();
+        setShowPopup(false); // ✅ Closes popup
       } else {
         alert(data.message || "Something went wrong.");
       }
@@ -56,30 +55,6 @@ export default function Home() {
   };
   
 
-  const handleContactSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch("https://your-backend-url/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, phone }),
-      });
-  
-      const data = await res.json();
-      if (res.ok) {
-        alert("Submitted successfully!");
-        setEmail("");
-        setPhone("");
-        setShowPopup(false);
-      } else {
-        alert(data.error || "Submission failed");
-      }
-    } catch (err) {
-      console.error("Submission error:", err);
-      alert("Something went wrong");
-    }
-  };
-  
   return (
     <>
 {/* Hero Section */}
