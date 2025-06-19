@@ -1,43 +1,84 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { FaServer, FaCode, FaGlobe, FaBullhorn, FaPalette, FaChartBar } from "react-icons/fa";
+import {
+  FaServer,
+  FaCode,
+  FaGlobe,
+  FaBullhorn,
+  FaPalette,
+  FaChartBar,
+} from "react-icons/fa";
 import ContactPopup from "../components/ContactPopup";
 
 export default function Services() {
   const { t } = useTranslation();
   const [showPopup, setShowPopup] = useState(false);
 
+  // ✅ Added for Home-style popup
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const handleSubmit = async () => {
+    try {
+      const res = await fetch("https://webique.onrender.com/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, phone }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setEmail("");
+        setPhone("");
+        return true;
+      } else {
+        console.error(data.message || "Submission failed");
+        return false;
+      }
+    } catch (err) {
+      console.error("❌ Submit error", err);
+      return false;
+    }
+  };
+
   const services = [
     {
       title: "Custom Web Applications",
       icon: <FaCode size={32} />,
-      description: "We build scalable, modern web applications tailored to your business needs — from booking systems to customer portals."
+      description:
+        "We build scalable, modern web applications tailored to your business needs — from booking systems to customer portals.",
     },
     {
       title: "Company Dashboards & Internal Systems",
       icon: <FaServer size={32} />,
-      description: "We create efficient dashboards and internal systems to help you manage operations, data, and staff workflows more easily."
+      description:
+        "We create efficient dashboards and internal systems to help you manage operations, data, and staff workflows more easily.",
     },
     {
       title: "Domain & Hosting Management",
       icon: <FaGlobe size={32} />,
-      description: "Let us handle your domain, SSL, and hosting configurations so you can focus on your business — secure and hassle-free."
+      description:
+        "Let us handle your domain, SSL, and hosting configurations so you can focus on your business — secure and hassle-free.",
     },
     {
       title: "Social Media Management",
       icon: <FaPalette size={32} />,
-      description: "We plan, design, and manage your content calendar — keeping your brand active and consistent across all platforms."
+      description:
+        "We plan, design, and manage your content calendar — keeping your brand active and consistent across all platforms.",
     },
     {
       title: "Ad Campaign Management",
       icon: <FaBullhorn size={32} />,
-      description: "From strategy to execution, we run data-driven ad campaigns across Instagram, TikTok, and Google to drive real results."
+      description:
+        "From strategy to execution, we run data-driven ad campaigns across Instagram, TikTok, and Google to drive real results.",
     },
     {
       title: "Analytics & Performance Reports",
       icon: <FaChartBar size={32} />,
-      description: "We track all your digital activity and provide clear performance reports to help you grow your online presence."
+      description:
+        "We track all your digital activity and provide clear performance reports to help you grow your online presence.",
     },
   ];
 
@@ -87,7 +128,16 @@ export default function Services() {
         </button>
       </motion.div>
 
-      {showPopup && <ContactPopup onClose={() => setShowPopup(false)} />}
+      {showPopup && (
+        <ContactPopup
+          onClose={() => setShowPopup(false)}
+          email={email}
+          phone={phone}
+          setEmail={setEmail}
+          setPhone={setPhone}
+          onSubmit={handleSubmit}
+        />
+      )}
     </div>
   );
 }
