@@ -1,114 +1,64 @@
-// src/pages/Services.jsx
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import {
-  FaGlobe,
-  FaCogs,
-  FaServer,
-  FaImages,
-  FaCalendarAlt,
-  FaBolt
-} from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { FaServer, FaCode, FaGlobe, FaBullhorn, FaPalette, FaChartBar } from "react-icons/fa";
+import ContactPopup from "../components/ContactPopup";
 
 export default function Services() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);
 
-  const handleSelect = (key) => {
-    navigate(`/form?service=${encodeURIComponent(key)}`);
-  };
-
-  const websiteServices = [
+  const services = [
     {
-      key: "website-basic",
-      title: t("servicesPage.website.basicTitle"),
-      icon: <FaGlobe size={32} />,
-      desc: t("servicesPage.website.basicDesc")
+      title: "Custom Web Applications",
+      icon: <FaCode size={32} />,
+      description: "We build scalable, modern web applications tailored to your business needs — from booking systems to customer portals."
     },
     {
-      key: "website-standard",
-      title: t("servicesPage.website.standardTitle"),
-      icon: <FaCogs size={32} />,
-      desc: t("servicesPage.website.standardDesc")
-    },
-    {
-      key: "website-premium",
-      title: t("servicesPage.website.premiumTitle"),
+      title: "Company Dashboards & Internal Systems",
       icon: <FaServer size={32} />,
-      desc: t("servicesPage.website.premiumDesc")
-    }
-  ];
-
-  const socialServices = [
-    {
-      key: "social-basic",
-      title: t("servicesPage.social.basicTitle"),
-      icon: <FaImages size={32} />,
-      desc: t("servicesPage.social.basicDesc")
+      description: "We create efficient dashboards and internal systems to help you manage operations, data, and staff workflows more easily."
     },
     {
-      key: "social-standard",
-      title: t("servicesPage.social.standardTitle"),
-      icon: <FaCalendarAlt size={32} />,
-      desc: t("servicesPage.social.standardDesc")
+      title: "Domain & Hosting Management",
+      icon: <FaGlobe size={32} />,
+      description: "Let us handle your domain, SSL, and hosting configurations so you can focus on your business — secure and hassle-free."
     },
     {
-      key: "social-ondemand",
-      title: t("servicesPage.social.ondemandTitle"),
-      icon: <FaBolt size={32} />,
-      desc: t("servicesPage.social.ondemandDesc")
-    }
+      title: "Social Media Management",
+      icon: <FaPalette size={32} />,
+      description: "We plan, design, and manage your content calendar — keeping your brand active and consistent across all platforms."
+    },
+    {
+      title: "Ad Campaign Management",
+      icon: <FaBullhorn size={32} />,
+      description: "From strategy to execution, we run data-driven ad campaigns across Instagram, TikTok, and Google to drive real results."
+    },
+    {
+      title: "Analytics & Performance Reports",
+      icon: <FaChartBar size={32} />,
+      description: "We track all your digital activity and provide clear performance reports to help you grow your online presence."
+    },
   ];
 
   return (
     <div className="w-full px-6 sm:px-12 py-16 max-w-7xl mx-auto text-black">
-      {/* Hero Section */}
+      {/* Header */}
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-          {t("servicesPage.title")}
-        </h1>
+        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Our Services</h1>
         <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
-          {t("servicesPage.subtitle")}
+          We offer a powerful combination of custom development, operations support, and marketing to grow your business. Every service is tailored to fit your goals.
         </p>
       </motion.div>
 
-      {/* Website Services */}
-      <Section
-        title={t("servicesPage.website.title")}
-        items={websiteServices}
-        onSelect={handleSelect}
-      />
-
-      {/* Social Media Services */}
-      <Section
-        title={t("servicesPage.social.title")}
-        items={socialServices}
-        onSelect={handleSelect}
-      />
-    </div>
-  );
-}
-
-// 🔁 Reusable Section Component
-function Section({ title, items, onSelect }) {
-  return (
-    <motion.div
-      className="mb-16"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-    >
-      <h2 className="text-2xl font-bold text-center mb-8">{title}</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {items.map((service, idx) => (
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        {services.map((service, idx) => (
           <motion.div
             key={idx}
             whileHover={{ scale: 1.05 }}
@@ -116,16 +66,28 @@ function Section({ title, items, onSelect }) {
           >
             <div className="text-accent mb-4 flex justify-center">{service.icon}</div>
             <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
-            <p className="text-sm text-gray-700 mb-4">{service.desc}</p>
-            <button
-              onClick={() => onSelect(service.key)}
-              className="mt-2 px-4 py-2 bg-accent text-white rounded-full hover:scale-105 transition-transform"
-            >
-              Choose This Package
-            </button>
+            <p className="text-sm text-gray-700">{service.description}</p>
           </motion.div>
         ))}
       </div>
-    </motion.div>
+
+      {/* CTA Button */}
+      <motion.div
+        className="text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <button
+          onClick={() => setShowPopup(true)}
+          className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
+        >
+          Let's Work Together
+        </button>
+      </motion.div>
+
+      {showPopup && <ContactPopup onClose={() => setShowPopup(false)} />}
+    </div>
   );
 }
