@@ -14,8 +14,6 @@ import ContactPopup from "../components/ContactPopup";
 export default function Services() {
   const { t } = useTranslation();
   const [showPopup, setShowPopup] = useState(false);
-
-  // ✅ Added for Home-style popup
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -45,40 +43,34 @@ export default function Services() {
 
   const services = [
     {
-      title: "Custom Web Applications",
+      title: t("servicesPage.grid.customWeb.title"),
       icon: <FaCode size={32} />,
-      description:
-        "We build scalable, modern web applications tailored to your business needs — from booking systems to customer portals.",
+      description: t("servicesPage.grid.customWeb.desc"),
     },
     {
-      title: "Company Dashboards & Internal Systems",
+      title: t("servicesPage.grid.internalSystems.title"),
       icon: <FaServer size={32} />,
-      description:
-        "We create efficient dashboards and internal systems to help you manage operations, data, and staff workflows more easily.",
+      description: t("servicesPage.grid.internalSystems.desc"),
     },
     {
-      title: "Domain & Hosting Management",
+      title: t("servicesPage.grid.domainHosting.title"),
       icon: <FaGlobe size={32} />,
-      description:
-        "Let us handle your domain, SSL, and hosting configurations so you can focus on your business — secure and hassle-free.",
+      description: t("servicesPage.grid.domainHosting.desc"),
     },
     {
-      title: "Social Media Management",
+      title: t("servicesPage.grid.socialMedia.title"),
       icon: <FaPalette size={32} />,
-      description:
-        "We plan, design, and manage your content calendar — keeping your brand active and consistent across all platforms.",
+      description: t("servicesPage.grid.socialMedia.desc"),
     },
     {
-      title: "Ad Campaign Management",
+      title: t("servicesPage.grid.adCampaigns.title"),
       icon: <FaBullhorn size={32} />,
-      description:
-        "From strategy to execution, we run data-driven ad campaigns across Instagram, TikTok, and Google to drive real results.",
+      description: t("servicesPage.grid.adCampaigns.desc"),
     },
     {
-      title: "Analytics & Performance Reports",
+      title: t("servicesPage.grid.analytics.title"),
       icon: <FaChartBar size={32} />,
-      description:
-        "We track all your digital activity and provide clear performance reports to help you grow your online presence.",
+      description: t("servicesPage.grid.analytics.desc"),
     },
   ];
 
@@ -91,9 +83,11 @@ export default function Services() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Our Services</h1>
+        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
+          {t("servicesPage.title")}
+        </h1>
         <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
-          We offer a powerful combination of custom development, operations support, and marketing to grow your business. Every service is tailored to fit your goals.
+          {t("servicesPage.subtitle")}
         </p>
       </motion.div>
 
@@ -106,7 +100,9 @@ export default function Services() {
             className="p-6 bg-white rounded-xl shadow-lg border text-center transition-all"
           >
             <div className="text-accent mb-4 flex justify-center">{service.icon}</div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900">{service.title}</h3>
+            <h3 className="text-xl font-semibold mb-2 text-gray-900">
+              {service.title}
+            </h3>
             <p className="text-sm text-gray-700">{service.description}</p>
           </motion.div>
         ))}
@@ -124,7 +120,7 @@ export default function Services() {
           onClick={() => setShowPopup(true)}
           className="px-6 py-3 bg-accent text-white rounded-full shadow-lg font-semibold text-lg hover:scale-105 transition-transform duration-300"
         >
-          Let's Work Together
+          {t("servicesPage.cta")}
         </button>
       </motion.div>
 

@@ -1,4 +1,3 @@
-// src/pages/Contact.jsx
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -25,9 +24,11 @@ export default function Contact() {
       >
         {/* Title */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Contact Us</h1>
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
+            {t("contactPage.title")}
+          </h1>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            Have a question or business inquiry? We’ll get back to you as soon as possible.
+            {t("contactPage.subtitle")}
           </p>
         </div>
 
@@ -40,8 +41,10 @@ export default function Contact() {
           >
             <FaEnvelope className="text-accent text-2xl" />
             <div>
-              <p className="font-semibold text-lg">Email</p>
-              <p className="text-gray-700 text-sm break-words">startwithwebique@gmail.com</p>
+              <p className="font-semibold text-lg">{t("contactPage.email.title")}</p>
+              <p className="text-gray-700 text-sm break-words" dir="ltr">
+                startwithwebique@gmail.com
+              </p>
             </div>
           </a>
 
@@ -52,8 +55,8 @@ export default function Contact() {
           >
             <FaPhoneAlt className="text-accent text-2xl" />
             <div>
-              <p className="font-semibold text-lg">Call Us (Website)</p>
-              <p className="text-gray-700 text-sm">+966 55 842 6221</p>
+              <p className="font-semibold text-lg">{t("contactPage.websitePhone.title")}</p>
+              <p className="text-gray-700 text-sm" dir="ltr">+966 55 842 6221</p>
             </div>
           </a>
 
@@ -64,8 +67,8 @@ export default function Contact() {
           >
             <FaPhoneAlt className="text-accent text-2xl" />
             <div>
-              <p className="font-semibold text-lg">Call Us (Marketing)</p>
-              <p className="text-gray-700 text-sm">+966 56 172 2933</p>
+              <p className="font-semibold text-lg">{t("contactPage.marketingPhone.title")}</p>
+              <p className="text-gray-700 text-sm" dir="ltr">+966 56 172 2933</p>
             </div>
           </a>
 
@@ -78,15 +81,15 @@ export default function Contact() {
           >
             <FaWhatsapp className="text-accent text-2xl" />
             <div>
-              <p className="font-semibold text-lg">WhatsApp</p>
-              <p className="text-gray-700 text-sm">+966 55 842 6221</p>
+              <p className="font-semibold text-lg">{t("contactPage.whatsapp.title")}</p>
+              <p className="text-gray-700 text-sm" dir="ltr">+966 55 842 6221</p>
             </div>
           </a>
         </div>
 
         {/* Social Media */}
         <div className="text-center">
-          <p className="text-xl font-semibold mb-4">Follow us</p>
+          <p className="text-xl font-semibold mb-4">{t("contactPage.followUs")}</p>
           <div className="flex justify-center gap-6 flex-wrap">
             <a href="https://www.instagram.com/startwithwebique" target="_blank" rel="noopener noreferrer" className="text-accent text-2xl hover:scale-110 transition">
               <FaInstagram />

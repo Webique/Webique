@@ -13,7 +13,8 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === "ar";
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -27,39 +28,28 @@ const Footer = () => {
       className="w-full bg-white/70 backdrop-blur-md border-t border-[#D69D70] shadow-inner pt-8"
     >
       <div className="max-w-7xl mx-auto px-4 pb-6 flex flex-col md:flex-row justify-between items-start gap-6 text-black">
-      {/* Contact Info */}
-<div className="flex-1 space-y-2">
-  <h4 className="text-lg font-bold text-black">Webique</h4>
-  <p className="flex items-center gap-2 text-sm">
-    <FaMapMarkerAlt className="text-[#D69D70]" />
-    Manchester, United Kingdom
-  </p>
-  <a
-    href="tel:+966558426221"
-    className="flex items-center gap-2 text-sm hover:text-[#D69D70] transition"
-  >
-    <FaPhoneAlt className="text-[#D69D70]" />
-    +966 558 426 221
-  </a>
-  <a
-    href="mailto:startwithwebique@gmail.com"
-    className="flex items-center gap-2 text-sm hover:text-[#D69D70] transition break-all"
-  >
-    <FaEnvelope className="text-[#D69D70]" />
-    startwithwebique@gmail.com
-  </a>
-</div>
-
-
-        {/* Links */}
-    { /*   <div className="flex-1 space-y-2 text-sm">
-          <a href="/privacy" className="block hover:text-[#D69D70] transition duration-300 font-medium">
-            {t("privacy") || "Privacy Policy"}
+        {/* Contact Info */}
+        <div className="flex-1 space-y-2">
+          <h4 className="text-lg font-bold text-black">{t("footer.brand")}</h4>
+          <p className="flex items-center gap-2 text-sm">
+            <FaMapMarkerAlt className="text-[#D69D70]" />
+            {t("footer.location")}
+          </p>
+          <a
+            href="tel:+966558426221"
+            className="flex items-center gap-2 text-sm hover:text-[#D69D70] transition"
+          >
+            <FaPhoneAlt className="text-[#D69D70]" />
+            <span dir="ltr">+966 558 426 221</span>
           </a>
-          <a href="/terms" className="block hover:text-[#D69D70] transition duration-300 font-medium">
-            {t("terms") || "Terms of Service"}
+          <a
+            href="mailto:startwithwebique@gmail.com"
+            className="flex items-center gap-2 text-sm hover:text-[#D69D70] transition break-all"
+          >
+            <FaEnvelope className="text-[#D69D70]" />
+            <span dir="ltr">startwithwebique@gmail.com</span>
           </a>
-        </div>*/}
+        </div>
 
         {/* Social + Scroll */}
         <div className="flex-1 flex flex-col items-center md:items-end gap-4">
@@ -102,14 +92,14 @@ const Footer = () => {
             className="text-[#D69D70] hover:text-black transition duration-300 text-sm flex items-center gap-1"
           >
             <FaArrowUp />
-            {t("backToTop") || "Back to Top"}
+            {t("footer.backToTop")}
           </button>
         </div>
       </div>
 
       {/* Copyright */}
       <div className="border-t border-[#D69D70] text-center text-sm py-4 text-black bg-white/50">
-        &copy; {new Date().getFullYear()} Webique. {t("allRightsReserved") || "All rights reserved."}
+        &copy; {new Date().getFullYear()} Webique. {t("footer.rights")}
       </div>
     </motion.footer>
   );
