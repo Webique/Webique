@@ -2,20 +2,27 @@ import React, { useState } from "react";
 
 export default function ContactPopup({
   onClose,
-  email,
-  phone,
-  setEmail,
-  setPhone,
+  email: propEmail,
+  phone: propPhone,
+  setEmail: setPropEmail,
+  setPhone: setPropPhone,
   onSubmit,
 }) {
   const [submitted, setSubmitted] = useState(false);
 
+  // Fallback to local state if not provided (for Services page)
+  const [localEmail, setLocalEmail] = useState("");
+  const [localPhone, setLocalPhone] = useState("");
+
+  const email = propEmail !== undefined ? propEmail : localEmail;
+  const phone = propPhone !== undefined ? propPhone : localPhone;
+  const setEmail = setPropEmail !== undefined ? setPropEmail : setLocalEmail;
+  const setPhone = setPropPhone !== undefined ? setPropPhone : setLocalPhone;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await onSubmit(); // returns true/false
-    if (success) {
-      setSubmitted(true);
-    }
+    const success = await onSubmit?.({ email, phone });
+    if (success) setSubmitted(true);
   };
 
   return (
