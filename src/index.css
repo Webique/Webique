@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hero Background Blur */
+/* Optional background blur */
 body::before {
   content: "";
   position: fixed;
@@ -19,15 +19,15 @@ body::before {
   pointer-events: none;
 }
 
-/* Optional Glass Card Style */
+/* Glass style card */
 .glass-card {
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Marquee Animation */
-@keyframes marquee {
+/* New, stable marquee animation */
+@keyframes slide {
   0% {
     transform: translateX(0%);
   }
@@ -36,9 +36,13 @@ body::before {
   }
 }
 
-.animate-marquee {
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-track {
   display: flex;
-  animation: marquee 25s linear infinite;
-  will-change: transform;
-  width: max-content;
+  width: 200%; /* To allow seamless loop */
+  animation: slide 18s linear infinite;
 }

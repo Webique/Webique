@@ -110,8 +110,7 @@ export default function Home() {
 
 
 
-{/* Trusted Companies Section */}
-<section className="w-full py-12 px-0 sm:px-12 bg-white overflow-hidden">
+<section className="w-full py-12 px-0 sm:px-12 bg-white">
   <div className="w-full text-center">
     <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-10 px-6 sm:px-0">
       {t("homePage.trustedBy")}
@@ -119,14 +118,7 @@ export default function Home() {
 
     {/* Desktop Grid */}
     <div className="hidden md:grid grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-center px-12">
-      {[
-        "client1.png",
-        "client2.png",
-        "client3.png",
-        "client4.png",
-        "client5.png",
-        "client6.png",
-      ].map((logo, idx) => (
+      {["client1.png", "client2.png", "client3.png", "client4.png", "client5.png", "client6.png"].map((logo, idx) => (
         <img
           key={idx}
           src={`/logos/${logo}`}
@@ -137,29 +129,18 @@ export default function Home() {
     </div>
 
     {/* Mobile Marquee */}
-    <div className="block md:hidden mt-4 overflow-hidden w-full relative">
-      <div className="flex animate-marquee gap-8 w-max px-6">
-        {[
-          "client1.png",
-          "client2.png",
-          "client3.png",
-          "client4.png",
-          "client5.png",
-          "client6.png",
-          "client1.png",
-          "client2.png",
-          "client3.png",
-          "client4.png",
-          "client5.png",
-          "client6.png",
-        ].map((logo, idx) => (
-          <img
-            key={idx}
-            src={`/logos/${logo}`}
-            alt={`Client ${idx + 1}`}
-            className="h-16 w-auto opacity-80"
-          />
-        ))}
+    <div className="block md:hidden marquee-container mt-4 px-6">
+      <div className="marquee-track">
+        {[...Array(2)].flatMap(() =>
+          ["client1.png", "client2.png", "client3.png", "client4.png", "client5.png", "client6.png"].map((logo, idx) => (
+            <img
+              key={idx + logo}
+              src={`/logos/${logo}`}
+              alt={`Client ${idx + 1}`}
+              className="h-16 w-auto mx-4 opacity-80"
+            />
+          ))
+        )}
       </div>
     </div>
   </div>
