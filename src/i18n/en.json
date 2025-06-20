@@ -107,20 +107,15 @@
   }
   
 },
-"formsPage": {
-  "title": "Tell Us About Your Idea",
-  "email": "Email Address",
-  "service": "Selected Service",
-  "idea": "Describe your project or idea...",
-  "submit": "Submit Inquiry",
-  "services": {
-    "website-basic": "Basic Website",
-    "website-standard": "Standard Website",
-    "website-premium": "Premium Website",
-    "social-basic": "Basic Content Bundle",
-    "social-standard": "Monthly Content Management",
-    "social-ondemand": "On-Demand Content Creation"
-  }
+"contactPopup": {
+  "title": "Contact Us",
+  "emailPlaceholder": "Email",
+  "phonePlaceholder": "Phone (optional)",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "thankYou": "Thank You!",
+  "successMessage": "We’ve received your details and will contact you within 2 days.",
+  "close": "Close"
 },
 "contactPage": {
   "title": "Contact Us",

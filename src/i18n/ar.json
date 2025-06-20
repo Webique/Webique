@@ -111,20 +111,15 @@
     "ondemandDesc": "احصل على منشورات وقصص مخصصة في أي وقت تحتاجه — بدون قيود أو خطط ثابتة. مثالي للمؤثرين والحملات والعلامات التجارية السريعة."
   }
 },
-"formsPage": {
-  "title": "اخبرنا عن فكرتك",
-  "email": "البريد الإلكتروني",
-  "service": "الخدمة المختارة",
-  "idea": "صف مشروعك أو فكرتك...",
-  "submit": "إرسال الطلب",
-  "services": {
-    "website-basic": "موقع أساسي",
-    "website-standard": "موقع قياسي",
-    "website-premium": "موقع مميز",
-    "social-basic": "باقة محتوى أساسي",
-    "social-standard": "إدارة محتوى شهرية",
-    "social-ondemand": "محتوى عند الطلب"
-  }
+"contactPopup": {
+  "title": "تواصل معنا",
+  "emailPlaceholder": "البريد الإلكتروني",
+  "phonePlaceholder": "رقم الهاتف (اختياري)",
+  "submit": "إرسال",
+  "cancel": "إلغاء",
+  "thankYou": "شكرًا لك!",
+  "successMessage": "تم استلام بياناتك وسنتواصل معك خلال يومين.",
+  "close": "إغلاق"
 },
 "contactPage": {
   "title": "تواصل معنا",

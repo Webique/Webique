@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function ContactPopup({
   onClose,
@@ -8,6 +9,7 @@ export default function ContactPopup({
   setPhone: setPropPhone,
   onSubmit,
 }) {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
   // Fallback to local state if not provided (for Services page)
@@ -29,26 +31,24 @@ export default function ContactPopup({
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
       <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
         <h2 className="text-xl font-semibold mb-4 text-center text-gray-900">
-          {submitted ? "Thank You!" : "Contact Us"}
+          {submitted ? t("contactPopup.thankYou") : t("contactPopup.title")}
         </h2>
 
         {submitted ? (
           <div className="text-center space-y-4">
-            <p className="text-gray-800">
-              We’ve received your details and will contact you within 2 days.
-            </p>
+            <p className="text-gray-800">{t("contactPopup.successMessage")}</p>
             <button
               onClick={onClose}
               className="px-4 py-2 bg-[#D69D70] text-white rounded-md hover:bg-[#bb865c]"
             >
-              Close
+              {t("contactPopup.close")}
             </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="email"
-              placeholder="Email"
+              placeholder={t("contactPopup.emailPlaceholder")}
               className="w-full px-4 py-2 border rounded-md text-gray-900"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -56,7 +56,7 @@ export default function ContactPopup({
             />
             <input
               type="tel"
-              placeholder="Phone (optional)"
+              placeholder={t("contactPopup.phonePlaceholder")}
               className="w-full px-4 py-2 border rounded-md text-gray-900"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -67,13 +67,13 @@ export default function ContactPopup({
                 onClick={onClose}
                 className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
               >
-                Cancel
+                {t("contactPopup.cancel")}
               </button>
               <button
                 type="submit"
                 className="px-4 py-2 bg-[#D69D70] text-white rounded-md hover:bg-[#bb865c]"
               >
-                Submit
+                {t("contactPopup.submit")}
               </button>
             </div>
           </form>
