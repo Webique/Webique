@@ -26,13 +26,23 @@ body::before {
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* New, stable marquee animation */
-@keyframes slide {
+/* LTR marquee animation */
+@keyframes slide-ltr {
   0% {
     transform: translateX(0%);
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+/* RTL marquee animation */
+@keyframes slide-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(50%);
   }
 }
 
@@ -43,6 +53,15 @@ body::before {
 
 .marquee-track {
   display: flex;
-  width: 200%; /* To allow seamless loop */
-  animation: slide 18s linear infinite;
+  width: 200%; /* For seamless loop */
+  will-change: transform;
+}
+
+/* Apply correct animation based on language direction */
+.marquee-track.ltr {
+  animation: slide-ltr 18s linear infinite;
+}
+
+.marquee-track.rtl {
+  animation: slide-rtl 18s linear infinite;
 }

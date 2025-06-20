@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import TextTransition, { presets } from "react-text-transition";
 import ContactPopup from "../components/ContactPopup"; // adjust path if different
 
+
 export default function Home() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
@@ -15,6 +16,7 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  
 
 
   // Dynamically update service texts on language change
@@ -130,7 +132,8 @@ export default function Home() {
 
     {/* Mobile Marquee */}
     <div className="block md:hidden marquee-container mt-4 px-6">
-      <div className="marquee-track">
+  <div className={`marquee-track ${isRTL ? "rtl" : "ltr"}`}>
+
         {[...Array(2)].flatMap(() =>
           ["client1.png", "client2.png", "client3.png", "client4.png", "client5.png", "client6.png"].map((logo, idx) => (
             <img
