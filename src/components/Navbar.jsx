@@ -77,7 +77,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
         <a href="/" className="flex items-center gap-3">
           <motion.img
-            src="/logo.jpg"
+            src="/logo2.png"
             alt="Webique Logo"
             className="h-12 w-auto object-contain drop-shadow-lg"
             initial={{ scale: 0.8, opacity: 0 }}
