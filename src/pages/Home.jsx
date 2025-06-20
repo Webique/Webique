@@ -136,10 +136,16 @@ export default function Home() {
       ))}
     </div>
 
-    {/* Mobile Horizontal Marquee */}
-    <div className="block md:hidden mt-4 relative overflow-hidden w-full">
-      <div className="flex animate-marquee space-x-8 w-max px-6 will-change-transform">
+    {/* Mobile Marquee */}
+    <div className="block md:hidden mt-4 overflow-hidden w-full relative">
+      <div className="flex animate-marquee gap-8 w-max px-6">
         {[
+          "client1.png",
+          "client2.png",
+          "client3.png",
+          "client4.png",
+          "client5.png",
+          "client6.png",
           "client1.png",
           "client2.png",
           "client3.png",
@@ -154,26 +160,11 @@ export default function Home() {
             className="h-16 w-auto opacity-80"
           />
         ))}
-        {/* Repeat for seamless loop */}
-        {[
-          "client1.png",
-          "client2.png",
-          "client3.png",
-          "client4.png",
-          "client5.png",
-          "client6.png",
-        ].map((logo, idx) => (
-          <img
-            key={`repeat-${idx}`}
-            src={`/logos/${logo}`}
-            alt={`Client ${idx + 1}`}
-            className="h-16 w-auto opacity-80"
-          />
-        ))}
       </div>
     </div>
   </div>
 </section>
+
 
 
 
