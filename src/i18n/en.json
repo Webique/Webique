@@ -108,14 +108,15 @@
   
 },
 "contactPopup": {
-  "title": "Contact Us",
-  "emailPlaceholder": "Email",
-  "phonePlaceholder": "Phone (optional)",
+  "title": "Let's stay in touch",
   "submit": "Submit",
   "cancel": "Cancel",
   "thankYou": "Thank You!",
-  "successMessage": "We’ve received your details and will contact you within 2 days.",
-  "close": "Close"
+  "successMessage": "We've received your contact info.",
+  "close": "Close",
+  "emailPlaceholder": "Your email",
+  "phonePlaceholder": "Your phone (optional)",
+  "loading": "Sending your info..."
 },
 "contactPage": {
   "title": "Contact Us",

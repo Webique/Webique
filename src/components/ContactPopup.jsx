@@ -11,8 +11,8 @@ export default function ContactPopup({
 }) {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // Fallback to local state if not provided (for Services page)
   const [localEmail, setLocalEmail] = useState("");
   const [localPhone, setLocalPhone] = useState("");
 
@@ -23,7 +23,9 @@ export default function ContactPopup({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const success = await onSubmit?.({ email, phone });
+    setLoading(false);
     if (success) setSubmitted(true);
   };
 
@@ -31,18 +33,27 @@ export default function ContactPopup({
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
       <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
         <h2 className="text-xl font-semibold mb-4 text-center text-gray-900">
-          {submitted ? t("contactPopup.thankYou") : t("contactPopup.title")}
+          {submitted
+            ? t("contactPopup.thankYou")
+            : t("contactPopup.title")}
         </h2>
 
         {submitted ? (
           <div className="text-center space-y-4">
-            <p className="text-gray-800">{t("contactPopup.successMessage")}</p>
+            <p className="text-gray-800">
+              {t("contactPopup.successMessage")}
+            </p>
             <button
               onClick={onClose}
               className="px-4 py-2 bg-[#D69D70] text-white rounded-md hover:bg-[#bb865c]"
             >
               {t("contactPopup.close")}
             </button>
+          </div>
+        ) : loading ? (
+          <div className="flex flex-col items-center space-y-4">
+            <div className="w-10 h-10 border-4 border-[#D69D70] border-t-transparent rounded-full animate-spin"></div>
+            <p className="text-gray-700">{t("contactPopup.loading")}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">

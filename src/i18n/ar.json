@@ -112,14 +112,15 @@
   }
 },
 "contactPopup": {
-  "title": "تواصل معنا",
-  "emailPlaceholder": "البريد الإلكتروني",
-  "phonePlaceholder": "رقم الهاتف (اختياري)",
+  "title": "دعنا نبقى على تواصل",
   "submit": "إرسال",
   "cancel": "إلغاء",
   "thankYou": "شكرًا لك!",
-  "successMessage": "تم استلام بياناتك وسنتواصل معك خلال يومين.",
-  "close": "إغلاق"
+  "successMessage": "تم استلام معلوماتك بنجاح.",
+  "close": "إغلاق",
+  "emailPlaceholder": "بريدك الإلكتروني",
+  "phonePlaceholder": "رقم هاتفك (اختياري)",
+  "loading": "يتم إرسال معلوماتك..."
 },
 "contactPage": {
   "title": "تواصل معنا",
