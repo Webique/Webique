@@ -25,7 +25,7 @@ app.post("/api/contact", async (req, res) => {
   if (!email && !phone) return res.status(400).json({ message: "Email or phone required." });
 
   try {
-    await Submission.collection.insertOne({ email, phone, createdAt: new Date() });
+    await new Submission({ email, phone }).save();
     res.status(201).json({ message: "Saved successfully" });
   } catch (err) {
     console.error(err);
