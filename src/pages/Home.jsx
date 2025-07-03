@@ -33,7 +33,7 @@ export default function Home() {
   }, [TEXTS]);
   const handleSubmit = async () => {
     try {
-      const res = await fetch("https://webique.onrender.com/api/contact", {
+      const res = await fetch("https://webique-nys8.onrender.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, phone }),

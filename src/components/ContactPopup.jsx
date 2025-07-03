@@ -22,7 +22,7 @@ export default function ContactPopup({
   const setPhone = setPropPhone !== undefined ? setPropPhone : setLocalPhone;
   const handleSubmit = async ({ email, phone }) => {
     try {
-      const res = await fetch("https://webique.onrender.com/api/contact", {
+      const res = await fetch("https://webique-nys8.onrender.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, phone }),
@@ -72,38 +72,48 @@ export default function ContactPopup({
             <p className="text-gray-700">{t("contactPopup.loading")}</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="email"
-              placeholder={t("contactPopup.emailPlaceholder")}
-              className="w-full px-4 py-2 border rounded-md text-gray-900"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="tel"
-              placeholder={t("contactPopup.phonePlaceholder")}
-              className="w-full px-4 py-2 border rounded-md text-gray-900"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <div className="flex justify-between">
-              <button
-                type="button"
-                onClick={onClose}
-                className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
-              >
-                {t("contactPopup.cancel")}
-              </button>
-              <button
-                type="submit"
-                className="px-4 py-2 bg-[#D69D70] text-white rounded-md hover:bg-[#bb865c]"
-              >
-                {t("contactPopup.submit")}
-              </button>
-            </div>
-          </form>
+          <form
+          onSubmit={async (e) => {
+            e.preventDefault();
+            setLoading(true);
+            const success = await handleSubmit({ email, phone });
+            setLoading(false);
+            if (success) setSubmitted(true);
+          }}
+          className="space-y-4"
+        >
+          <input
+            type="email"
+            placeholder={t("contactPopup.emailPlaceholder")}
+            className="w-full px-4 py-2 border rounded-md text-gray-900"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="tel"
+            placeholder={t("contactPopup.phonePlaceholder")}
+            className="w-full px-4 py-2 border rounded-md text-gray-900"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <div className="flex justify-between">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
+            >
+              {t("contactPopup.cancel")}
+            </button>
+            <button
+              type="submit"
+              className="px-4 py-2 bg-[#D69D70] text-white rounded-md hover:bg-[#bb865c]"
+            >
+              {t("contactPopup.submit")}
+            </button>
+          </div>
+        </form>
+        
         )}
       </div>
     </div>
