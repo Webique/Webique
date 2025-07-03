@@ -20,14 +20,30 @@ export default function ContactPopup({
   const phone = propPhone !== undefined ? propPhone : localPhone;
   const setEmail = setPropEmail !== undefined ? setPropEmail : setLocalEmail;
   const setPhone = setPropPhone !== undefined ? setPropPhone : setLocalPhone;
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    const success = await onSubmit?.({ email, phone });
-    setLoading(false);
-    if (success) setSubmitted(true);
+  const handleSubmit = async ({ email, phone }) => {
+    try {
+      const res = await fetch("https://webique.onrender.com/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, phone }),
+      });
+  
+      const data = await res.json();
+  
+      if (res.ok) {
+        setEmail("");
+        setPhone("");
+        return true;
+      } else {
+        console.error(data.message || "Submission failed");
+        return false;
+      }
+    } catch (err) {
+      console.error("❌ Submit error", err);
+      return false;
+    }
   };
+  
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
