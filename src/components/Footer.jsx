@@ -36,11 +36,11 @@ const Footer = () => {
             {t("footer.location")}
           </p>
           <a
-            href="tel:+966558426221"
+            href="tel:+966561464828"
             className="flex items-center gap-2 text-sm hover:text-[#D69D70] transition"
           >
             <FaPhoneAlt className="text-[#D69D70]" />
-            <span dir="ltr">+966 558 426 221</span>
+            <span dir="ltr">+966 561 464 828</span>
           </a>
           <a
             href="mailto:startwithwebique@gmail.com"
@@ -71,7 +71,7 @@ const Footer = () => {
               <FaTiktok />
             </a>
             <a
-              href="https://wa.me/966558426221"
+              href="https://wa.me/966561464828"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-black transition duration-300"

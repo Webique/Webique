@@ -50,13 +50,13 @@ export default function Contact() {
 
           {/* Phone – Website */}
           <a
-            href="tel:+966558426221"
+            href="tel:+966561464828"
             className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl p-5 hover:shadow-lg transition"
           >
             <FaPhoneAlt className="text-accent text-2xl" />
             <div>
               <p className="font-semibold text-lg">{t("contactPage.websitePhone.title")}</p>
-              <p className="text-gray-700 text-sm" dir="ltr">+966 55 842 6221</p>
+              <p className="text-gray-700 text-sm" dir="ltr">+966 56 146 4828</p>
             </div>
           </a>
 
@@ -74,7 +74,7 @@ export default function Contact() {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/966558426221"
+            href="https://wa.me/966561464828"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl p-5 hover:shadow-lg transition"
@@ -82,7 +82,7 @@ export default function Contact() {
             <FaWhatsapp className="text-accent text-2xl" />
             <div>
               <p className="font-semibold text-lg">{t("contactPage.whatsapp.title")}</p>
-              <p className="text-gray-700 text-sm" dir="ltr">+966 55 842 6221</p>
+              <p className="text-gray-700 text-sm" dir="ltr">+966 56 146 4828</p>
             </div>
           </a>
         </div>
